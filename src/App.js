@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import '../src/assets/App.css';
+import React, { } from "react";
+import { } from 'react-bootstrap'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './components/Home';
+import NotFound from './components/NotFound';
+import Album from './components/Album';
+import Artist from './components/Artist';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/album' element={<Album />} />
+          <Route path='/artist' element={<Artist />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
