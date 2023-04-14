@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "../assets/App.css";
 import logo from "../assets/imgs/logo2.png";
 import { Col, Container, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { setQuery, setSearch } from "../redux/reducers/searchReducer";
 
 const Sidebar = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const dispatch = useDispatch();
+
+  const clickHandler = () => {
+    dispatch(setSearch(true));
+    dispatch(setQuery(searchQuery));
+  };
+
   return (
     <>
       <Col className="col-2">
@@ -12,9 +23,9 @@ const Sidebar = () => {
           id="sidebar"
         >
           <div className="nav-container">
-            <a className="navbar-brand" href="index.html">
+            <Link to={"/"} className="navbar-brand">
               <img src={logo} alt="Spotify_Logo" width="131" height="40" />
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -30,9 +41,9 @@ const Sidebar = () => {
               <div className="navbar-nav">
                 <ul>
                   <li>
-                    <a className="nav-item nav-link" href="index.html">
+                    <Link to={"/"} className="nav-item nav-link">
                       <i className="fas fa-home fa-lg"></i>&nbsp; Home
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a className="nav-item nav-link" href="#">
@@ -49,6 +60,9 @@ const Sidebar = () => {
                         placeholder="Search"
                         aria-label="Search"
                         aria-describedby="basic-addon2"
+                        onChange={(e) => {
+                          setSearchQuery(e.target.value);
+                        }}
                       />
                       <div
                         className="input-group-append"
@@ -58,7 +72,9 @@ const Sidebar = () => {
                           className="btn btn-outline-secondary btn-sm"
                           type="button"
                           id="button-addon1"
-                          onClick="search()"
+                          onClick={() => {
+                            clickHandler();
+                          }}
                         >
                           GO
                         </button>

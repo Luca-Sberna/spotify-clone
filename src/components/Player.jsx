@@ -5,8 +5,11 @@ import Play from "../assets/imgs/playerbuttons/Play.png";
 import Previous from "../assets/imgs/playerbuttons/Previous.png";
 import Repeat from "../assets/imgs/playerbuttons/Repeat.png";
 import Shuffle from "../assets/imgs/playerbuttons/Shuffle.png";
+import { useSelector } from "react-redux";
 
 const Player = () => {
+  const currentSong = useSelector((state) => state.player.currentSong);
+
   return (
     <>
       <div className="container-fluid fixed-bottom bg-container pt-1">
@@ -33,6 +36,41 @@ const Player = () => {
                 </div>
               </div>
             </div>
+            {currentSong.title && (
+              <div
+                className="position-absolute"
+                style={{ left: "245px", top: "0" }}
+              >
+                <div
+                  id="cardPlaying"
+                  className="card mb-3 text-light"
+                  style={{ maxWidth: "540px" }}
+                >
+                  <div className="row g-0">
+                    <div className="col-md-4">
+                      <img
+                        src={currentSong.album.cover_small}
+                        className="img-fluid rounded-start img-fluid"
+                        alt={currentSong.title}
+                      />
+                    </div>
+                    <div className="col-md-8">
+                      <div className="card-body pt-0 px-1">
+                        <strong className="card-title">
+                          {currentSong.title}
+                        </strong>
+                        <p className="card-text">{currentSong.artist.name}</p>
+                        <p className="card-text">
+                          <small className="text-muted">
+                            {currentSong.album.title}
+                          </small>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
             <div className="row justify-content-center playBar py-3">
               <div className="col-8 col-md-6">
                 <div className="progress">
