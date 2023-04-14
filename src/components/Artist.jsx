@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 import Player from "./Player";
 import Topbar from "./Topbar";
 import { Link, useParams } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 const Artist = () => {
   const [artist, setArtist] = useState(null);
@@ -83,7 +83,7 @@ const Artist = () => {
                           alt={artist.name}
                         />
                         <h2 className="titleMain">{artist.name}</h2>
-                        <div id="followers">{artist.nb_fan}</div>
+                        <div id="followers">Followers: {artist.nb_fan}</div>
                       </>
                     )}
                     <div
@@ -118,19 +118,29 @@ const Artist = () => {
                             {trackList.data.map((song) => {
                               return (
                                 <>
-                                  <div className="col-sm-auto col-md-auto text-center mb-5">
-                                    <Link to={"/album/:albumId"}>
-                                      <img
-                                        className="img-fluid"
-                                        src={song.album.cover_big}
-                                        alt="img-cover"
-                                      />
-                                    </Link>
-                                    <Link>Track: {song.title}</Link>
-                                    <Link to={"/album/:albumId"}>
-                                      Album: {song.album.title}
-                                    </Link>
-                                  </div>
+                                  <Container fluid>
+                                    <Row className="col-sm-auto col-md-auto  mb-5 align-items-center">
+                                      <Link to={"/album/:albumId"}>
+                                        <img
+                                          className="img-fluid"
+                                          src={song.album.cover_big}
+                                          alt="img-cover"
+                                        />
+                                      </Link>
+
+                                      <Row className="pl-1">
+                                        <Col>
+                                          <Link to={"/album/:albumId"}>
+                                            Album: {song.album.title}
+                                          </Link>
+                                        </Col>
+
+                                        <Col xs={12}>
+                                          <Link>Track: {song.title}</Link>
+                                        </Col>
+                                      </Row>
+                                    </Row>
+                                  </Container>
                                 </>
                               );
                             })}
