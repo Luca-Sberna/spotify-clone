@@ -39,12 +39,12 @@ const Player = () => {
             {currentSong.title && (
               <div
                 className="position-absolute"
-                style={{ left: "245px", top: "0" }}
+                style={{ left: "50px", top: "0" }}
               >
                 <div
                   id="cardPlaying"
                   className="card mb-3 text-light"
-                  style={{ maxWidth: "540px" }}
+                  style={{ maxWidth: "240px" }}
                 >
                   <div className="row g-0">
                     <div className="col-md-4">

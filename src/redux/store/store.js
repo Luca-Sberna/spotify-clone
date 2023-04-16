@@ -2,13 +2,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 // import mainReducer from "../reducers";
 import searchReducer from "../reducers/searchReducer";
-import playReducer from "../reducers/playReducer";
+import playerReducer from "../reducers/playerReducer";
 
 
 const store = configureStore({
   reducer: {
     search: searchReducer,
-    player: playReducer
+    player: playerReducer
   }
 });
 

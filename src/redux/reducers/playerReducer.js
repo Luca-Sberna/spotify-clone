@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const playReducer = createSlice({
+export const playerReducer = createSlice({
   name: "player",
   initialState: {
 
@@ -15,8 +15,8 @@ export const playReducer = createSlice({
 });
 
 
-export const { setPlay } = playReducer.actions;
+export const { setPlay } = playerReducer.actions;
 
-export default playReducer.reducer;
+export default playerReducer.reducer;
 
 

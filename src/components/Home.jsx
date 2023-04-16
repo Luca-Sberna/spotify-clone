@@ -5,8 +5,9 @@ import Sidebar from "./Sidebar";
 import Player from "./Player";
 import Topbar from "./Topbar";
 import { useDispatch, useSelector } from "react-redux";
-import { setPlay } from "../redux/reducers/playReducer";
+import { setPlay } from "../redux/reducers/playerReducer";
 import HomeContent from "./HomeContent";
+import Play from "../assets/imgs/playerbuttons/Play.png";
 
 const Home = ({ query }) => {
   const [songs, setSongs] = useState([]);
@@ -54,7 +55,11 @@ const Home = ({ query }) => {
                       <Spinner className="" variant="primary"></Spinner>
                     </Col>
                   )}
-                  <div id="searchResults" style={{ display: "none" }}>
+                  <div
+                    id="searchResults"
+                    style={{ display: "none" }}
+                    className=""
+                  >
                     <h2>Search Results</h2>
                     <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
                       {search && (

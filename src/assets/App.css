@@ -6,6 +6,25 @@ body {
       rgb(15, 21, 29) 100%);
 }
 
+img {
+  cursor: pointer;
+  z-index: 140;
+  transition: 0.2s;
+}
+
+img:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+.play {
+  z-index: 150;
+  right: 90px;
+  bottom: 150px;
+  max-width: 35px;
+
+}
+
 /*SIDEBAR SECTION*/
 .navbar.fixed-left {
   position: fixed;
@@ -88,6 +107,10 @@ ul {
 
 .bg-container {
   height: 5.5rem;
+  background-color: #282828;
+}
+
+.card {
   background-color: #282828;
 }
 

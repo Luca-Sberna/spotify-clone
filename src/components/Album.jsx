@@ -76,7 +76,7 @@ const Album = () => {
                           return (
                             <div className="py-3 trackHover" key={track.id}>
                               <a
-                                href="#"
+                                href="#/"
                                 className="card-title trackHover px-3"
                                 style={{ color: "white" }}
                               >

@@ -46,7 +46,7 @@ const Sidebar = () => {
                     </Link>
                   </li>
                   <li>
-                    <a className="nav-item nav-link" href="#">
+                    <a className="nav-item nav-link" href="#/">
                       <i className="fas fa-book-open fa-lg"></i>&nbsp; Your
                       Library
                     </a>
