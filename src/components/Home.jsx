@@ -4,10 +4,10 @@ import { Col, Container, Row, Spinner } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 import Player from "./Player";
 import Topbar from "./Topbar";
-import { useDispatch, useSelector } from "react-redux";
-import { setPlay } from "../redux/reducers/playerReducer";
 import HomeContent from "./HomeContent";
-import Play from "../assets/imgs/playerbuttons/Play.png";
+import { useSelector } from "react-redux";
+
+/* commenti ed info nello store di redux */
 
 const Home = ({ query }) => {
   const [songs, setSongs] = useState([]);

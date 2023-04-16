@@ -20,3 +20,7 @@ export default store;
 combinando lo stato iniziale , i reducer e le action  in un'unica definizione,riducendo di molto
 la quantità di codice necessaria per creare e gestire gli stati e le azioni di redux.
 fornisce anche funzionalità aggiuntive nel redux toolkit */
+
+/* ps -non ho fatto in tempo ad aggiungere un'azione remove favourite all' HearthBroken 
+      -ha smesso di funzionare la search all'ultimo anche se in redux tool mi rende ciò che vorrei 
+      */

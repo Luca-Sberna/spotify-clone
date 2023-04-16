@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../assets/App.css";
 import logo from "../assets/imgs/logo2.png";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { setQuery, setSearch } from "../redux/reducers/searchReducer";
