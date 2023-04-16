@@ -38,7 +38,7 @@ const Artist = () => {
 
       if (response.ok) {
         let data = await response.json();
-        console.log(data);
+        console.log("data:", data);
         setTrackList(data);
       }
     } catch (err) {
@@ -58,6 +58,7 @@ const Artist = () => {
     }
   }, [artist]);
   console.log("track:", trackList);
+
   return (
     <>
       <div className="container-fluid">
@@ -120,17 +121,15 @@ const Artist = () => {
                                 <>
                                   <Container fluid>
                                     <Row className="col-sm-auto col-md-auto  mb-5 align-items-center">
-                                      <Link to={"/album/:albumId"}>
-                                        <img
-                                          className="img-fluid"
-                                          src={song.album.cover_big}
-                                          alt="img-cover"
-                                        />
-                                      </Link>
+                                      <img
+                                        className="img-fluid"
+                                        src={song.album.cover_big}
+                                        alt="img-cover"
+                                      />
 
                                       <Row className="pl-1">
                                         <Col>
-                                          <Link to={"/album/:albumId"}>
+                                          <Link to={`/album/${song.album}`}>
                                             Album: {song.album.title}
                                           </Link>
                                         </Col>
