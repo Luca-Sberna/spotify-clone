@@ -86,7 +86,12 @@ const Album = () => {
                                 className="duration"
                                 style={{ color: "white" }}
                               >
-                                {track.duration}
+                                {new Date(
+                                  track.duration * 1000,
+                                ).toLocaleTimeString([], {
+                                  minute: "2-digit",
+                                  second: "2-digit",
+                                })}{" "}
                               </small>
                             </div>
                           );

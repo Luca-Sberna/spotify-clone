@@ -25,6 +25,20 @@ img:hover {
 
 }
 
+.favourite-btn {
+  bottom: 0.2rem;
+  left: 1.2rem;
+  height: 2rem;
+  opacity: 50%;
+
+}
+
+.favourite-btn:hover {
+  opacity: 100%;
+
+
+}
+
 /*SIDEBAR SECTION*/
 .navbar.fixed-left {
   position: fixed;

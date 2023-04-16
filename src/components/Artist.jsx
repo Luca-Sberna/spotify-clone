@@ -57,7 +57,7 @@ const Artist = () => {
       fetchTrackListContent(artist.tracklist);
     }
   }, [artist]);
-
+  console.log("track:", trackList);
   return (
     <>
       <div className="container-fluid">
