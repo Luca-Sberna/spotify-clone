@@ -10,7 +10,7 @@ const Sidebar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const dispatch = useDispatch();
 
-  const clickHandler = () => {
+  const handleSubmit = () => {
     dispatch(setSearch(true));
     dispatch(setQuery(searchQuery));
   };
@@ -73,7 +73,7 @@ const Sidebar = () => {
                           type="button"
                           id="button-addon1"
                           onClick={() => {
-                            clickHandler();
+                            handleSubmit();
                           }}
                         >
                           GO

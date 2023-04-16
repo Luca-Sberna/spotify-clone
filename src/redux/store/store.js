@@ -13,3 +13,8 @@ const store = configureStore({
 });
 
 export default store;
+
+/* CODE GPT mi ha consigliato di utilizzare gli slice in quanto è una forma più concisa 
+combinando lo stato iniziale , i reducer e le action  in un'unica definizione,riducendo di molto
+la quantità di codice necessaria per creare e gestire gli stati e le azioni di redux.
+fornisce anche funzionalità aggiuntive nel redux toolkit */
