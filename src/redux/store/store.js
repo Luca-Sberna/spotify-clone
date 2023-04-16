@@ -23,4 +23,4 @@ fornisce anche funzionalità aggiuntive nel redux toolkit */
 
 /* ps -non ho fatto in tempo ad aggiungere un'azione remove favourite all' HearthBroken 
       -ha smesso di funzionare la search all'ultimo anche se in redux tool mi rende ciò che vorrei 
-      */
+      -stile e responsive da sistemare*/
