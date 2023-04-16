@@ -2,15 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const favouriteSong = createSlice({
     name: "favourite",
-    initialState: {
-
-        currentSong: {}
-    },
+    initialState: [],
     reducers: {
 
-        setFavouriteSong: (state, action) => {
-            state.currentSong = action.payload;
-        }
+        setFavouriteSong: (state, action) =>
+            [...state, action.payload]
+
+
     }
 });
 

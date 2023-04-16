@@ -4,12 +4,18 @@ import Sidebar from "./Sidebar";
 import Player from "./Player";
 import Topbar from "./Topbar";
 import { useParams } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
+import Hearth from "../assets/imgs/icons/hearth.gif";
+import HearthBroken from "../assets/imgs/icons/hearth-broken.png";
+import { useDispatch, useSelector } from "react-redux";
+import { setFavouriteSong } from "../redux/reducers/favouriteSong";
 
 const Album = () => {
   const params = useParams();
   const [album, setAlbum] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const favouriteSong = useSelector((state) => state.favourite);
 
   const fetchAlbumContent = async (albumId) => {
     setIsLoading(true);
@@ -34,6 +40,9 @@ const Album = () => {
     fetchAlbumContent();
   }, []);
 
+  const handleClickFavourite = (el) => {
+    dispatch(setFavouriteSong(el));
+  };
   return (
     <>
       <div className="container-fluid">
@@ -74,26 +83,62 @@ const Album = () => {
                       {album &&
                         album.tracks.data.map((track) => {
                           return (
-                            <div className="py-3 trackHover" key={track.id}>
-                              <a
-                                href="#/"
-                                className="card-title trackHover px-3"
-                                style={{ color: "white" }}
-                              >
-                                {track.title}
-                              </a>
-                              <small
-                                className="duration"
-                                style={{ color: "white" }}
-                              >
-                                {new Date(
-                                  track.duration * 1000,
-                                ).toLocaleTimeString([], {
-                                  minute: "2-digit",
-                                  second: "2-digit",
-                                })}{" "}
-                              </small>
-                            </div>
+                            <Container
+                              className="py-3 trackHover"
+                              key={track.id}
+                            >
+                              <Row>
+                                {console.log(favouriteSong)}
+                                {!favouriteSong.includes(track.id) ? (
+                                  <Col>
+                                    <img
+                                      src={Hearth}
+                                      alt="..."
+                                      className="favourite-btn"
+                                      style={{ width: "2rem" }}
+                                      onClick={() => {
+                                        handleClickFavourite(track.id);
+                                      }}
+                                    />
+                                  </Col>
+                                ) : (
+                                  <Col>
+                                    <img
+                                      src={HearthBroken}
+                                      alt="..."
+                                      className="favourite-btn"
+                                      style={{ width: "2rem" }}
+                                      onClick={() => {
+                                        handleClickFavourite(track.id);
+                                      }}
+                                    />
+                                  </Col>
+                                )}
+
+                                <Col xs={6} className="text-truncate">
+                                  <a
+                                    href="#/"
+                                    className="card-title trackHover px-3 "
+                                    style={{ color: "white" }}
+                                  >
+                                    {track.title}
+                                  </a>
+                                </Col>
+                                <Col>
+                                  <small
+                                    className="duration"
+                                    style={{ color: "white" }}
+                                  >
+                                    {new Date(
+                                      track.duration * 1000,
+                                    ).toLocaleTimeString([], {
+                                      minute: "2-digit",
+                                      second: "2-digit",
+                                    })}{" "}
+                                  </small>
+                                </Col>
+                              </Row>
+                            </Container>
                           );
                         })}
                       ;

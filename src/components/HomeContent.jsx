@@ -35,7 +35,9 @@ const HomeContent = ({ data }) => {
                   src={Hearth}
                   alt="..."
                   className="favourite-btn position-absolute w-25"
-                  onClick={handleClickFavourite(el)}
+                  onClick={() => {
+                    handleClickFavourite(el);
+                  }}
                 />
               </Container>
               <Container className="d-flex flex-column pt-1 pb-4">
