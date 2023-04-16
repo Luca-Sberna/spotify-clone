@@ -6,7 +6,9 @@ export const favouriteSong = createSlice({
     reducers: {
 
         setFavouriteSong: (state, action) =>
-            [...state, action.payload]
+            [...state, action.payload],
+
+        setRemoveFavouriteSong: (state, action) => state.filter(song => song !== action.payload)
 
 
     }
@@ -14,6 +16,9 @@ export const favouriteSong = createSlice({
 
 
 export const { setFavouriteSong } = favouriteSong.actions;
+export const { setRemoveFavouriteSong } = favouriteSong.actions;
+
+
 
 export default favouriteSong.reducer;
 

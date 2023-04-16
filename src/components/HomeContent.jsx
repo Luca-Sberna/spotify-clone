@@ -4,7 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Hearth from "../assets/imgs/icons/hearth.gif";
-import { setFavouriteSong } from "../redux/reducers/favouriteSong";
+import {
+  setFavouriteSong,
+  setRemoveFavouriteSong,
+} from "../redux/reducers/favouriteSong";
 import HearthBroken from "../assets/imgs/icons/hearth-broken.png";
 
 const HomeContent = ({ data }) => {
@@ -17,6 +20,10 @@ const HomeContent = ({ data }) => {
 
   const handleClickFavourite = (el) => {
     dispatch(setFavouriteSong(el));
+  };
+
+  const handleClickRemoveFavourite = (el) => {
+    dispatch(setRemoveFavouriteSong(el));
   };
 
   return (
@@ -49,7 +56,7 @@ const HomeContent = ({ data }) => {
                     alt="..."
                     className="favourite-btn position-absolute w-25"
                     onClick={() => {
-                      handleClickFavourite(track.id);
+                      handleClickRemoveFavourite(track.id);
                     }}
                   />
                 )}

@@ -8,7 +8,10 @@ import { Col, Container, Row, Spinner } from "react-bootstrap";
 import Hearth from "../assets/imgs/icons/hearth.gif";
 import HearthBroken from "../assets/imgs/icons/hearth-broken.png";
 import { useDispatch, useSelector } from "react-redux";
-import { setFavouriteSong } from "../redux/reducers/favouriteSong";
+import {
+  setFavouriteSong,
+  setRemoveFavouriteSong,
+} from "../redux/reducers/favouriteSong";
 
 const Album = () => {
   const params = useParams();
@@ -43,6 +46,11 @@ const Album = () => {
   const handleClickFavourite = (el) => {
     dispatch(setFavouriteSong(el));
   };
+
+  const handleClickRemoveFavourite = (el) => {
+    dispatch(setRemoveFavouriteSong(el));
+  };
+
   return (
     <>
       <div className="container-fluid">
@@ -109,7 +117,7 @@ const Album = () => {
                                       className="favourite-btn"
                                       style={{ width: "2rem" }}
                                       onClick={() => {
-                                        handleClickFavourite(track.id);
+                                        handleClickRemoveFavourite(track.id);
                                       }}
                                     />
                                   </Col>
